@@ -15,7 +15,7 @@ namespace CarApplication
         Tourer
     }
 
-    public class Bike
+    public class Bike : Vehicle
     {
         public bikeType Type { get; set; }
     }

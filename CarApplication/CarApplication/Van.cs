@@ -24,7 +24,7 @@ namespace CarApplication
         Unlisted
     }
 
-    class Van
+    public class Van : Vehicle
     {
         public wheelbase WheelBase { get; set; }
         public vanType Type { get; set; }

@@ -16,7 +16,7 @@ namespace CarApplication
         SUV,
         Unlisted
     }
-    public class Car
+    public class Car : Vehicle
     {
         public bodyType BodyType { get; set; }
     }
