@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Car Application" Height="350" Width="525" Loaded="OnLoad">
     <Grid>
-        
+        <Label x:Name="testLabel" Content="Label" HorizontalAlignment="Left" Margin="172,134,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
