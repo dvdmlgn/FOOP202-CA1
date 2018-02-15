@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace CarApplication
 {
@@ -20,6 +22,11 @@ namespace CarApplication
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string filepath = "";
+        
+
+        public string VehicleDBjson = "";
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,7 +34,14 @@ namespace CarApplication
 
         private void OnLoad(object sender, EventArgs e)
         {
-            testLabel.Content = "success";
+            filepath = Environment.CurrentDirectory;
+            filepath = filepath.Substring(0, filepath.Length - 9);
+
+            //testLabel.Content = "success";
+
+            VehicleDBjson = File.ReadAllText(filepath + "models-json.json");
+
+            testLabel.Content = VehicleDBjson;
         }
     }
 }

@@ -17,5 +17,11 @@ namespace CarApplication
         public double Mileage { get; set; }
         public string Description { get; set; }
         // image property
+
+
+        public override string ToString()
+        {
+            return Make + ", " + Model;
+        }
     }
 }
