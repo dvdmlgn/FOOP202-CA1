@@ -24,12 +24,5 @@ namespace CarApplication
         {
             InitializeComponent();
         }
-
-
-
-        private void OnLoad(object sender, EventArgs e)
-        {
-            testLabel.Content = "works!";
-        }
     }
 }
