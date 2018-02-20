@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarApplication"
         mc:Ignorable="d"
-        Title="Car Application" Height="350" Width="525" Loaded="OnLoad">
+        Title="Car Application" Height="375.562" Width="622.331" Loaded="OnLoad">
     <Grid>
-        <Label x:Name="testLabel" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.163,0.22" Height="299" Width="497"/>
+        <TabControl HorizontalAlignment="Left" Height="345" VerticalAlignment="Top" Width="614">
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5" Margin="0,-1,0,1"/>
+            </TabItem>
+        </TabControl>
+
 
     </Grid>
 </Window>

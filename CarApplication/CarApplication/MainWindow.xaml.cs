@@ -22,10 +22,10 @@ namespace CarApplication
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string filepath = "";
+        //public string filepath = "";
         
 
-        public string VehicleDBjson = "";
+        //public string VehicleDBjson = "";
 
         public MainWindow()
         {
@@ -34,14 +34,14 @@ namespace CarApplication
 
         private void OnLoad(object sender, EventArgs e)
         {
-            filepath = Environment.CurrentDirectory;
-            filepath = filepath.Substring(0, filepath.Length - 9);
+            //filepath = Environment.CurrentDirectory;
+            //filepath = filepath.Substring(0, filepath.Length - 9);
 
             //testLabel.Content = "success";
 
-            VehicleDBjson = File.ReadAllText(filepath + "models-json.json");
+            //VehicleDBjson = File.ReadAllText(filepath + "models-json.json");
 
-            testLabel.Content = VehicleDBjson;
+            //testLabel.Content = VehicleDBjson;
         }
     }
 }

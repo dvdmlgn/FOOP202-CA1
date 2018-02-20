@@ -7,7 +7,14 @@ using System.Windows.Media;
 
 namespace CarApplication
 {
-    public class Vehicle
+    public enum VehicleType
+    {
+        Car,
+        Bike,
+        Van
+    }
+
+    public abstract class Vehicle
     {
         public string Make { get; set; }
         public string Model { get; set; }
