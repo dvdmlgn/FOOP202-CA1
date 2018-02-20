@@ -55,5 +55,35 @@ namespace CarApplication
             buttonOpenMenu.Visibility = Visibility.Visible;
             buttonCloseMenu.Visibility = Visibility.Collapsed;
         }
+
+        private void listViewNavbar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = listViewNavbar.SelectedItem as ListViewItem;
+
+            if(selectedItem != null)
+            {
+                switch (selectedItem.Name)
+                {
+                    case "ItemCatalogue":
+                        Catalogue.Visibility = Visibility.Visible;
+                        Edit.Visibility      = Visibility.Collapsed;
+                        Settings.Visibility = Visibility.Collapsed;
+                        break;
+
+                    case "ItemEdit":
+                        Catalogue.Visibility = Visibility.Collapsed;
+                        Edit.Visibility = Visibility.Visible;
+                        Settings.Visibility = Visibility.Collapsed;
+                        break;
+
+                    case "ItemSettings":
+                        Catalogue.Visibility = Visibility.Collapsed;
+                        Edit.Visibility = Visibility.Collapsed;
+                        Settings.Visibility = Visibility.Visible;
+                        break;
+                }
+
+            }
+        }
     }
 }

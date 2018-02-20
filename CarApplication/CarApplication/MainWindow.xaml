@@ -34,7 +34,7 @@
         </EventTrigger>
 
     </Window.Triggers>
-    
+
     <Grid>
 
         <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left">
@@ -54,22 +54,22 @@
                         <materialDesign:PackIcon Kind="Menu" Width="25" Height="25" Foreground="White"/>
                     </Button>
                 </Grid>
-                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent">
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
+                <ListView x:Name="listViewNavbar" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" SelectionChanged="listViewNavbar_SelectionChanged">
+                    <ListViewItem x:Name="ItemCatalogue" Height="60">
+                        <StackPanel Orientation="Horizontal" >
                             <materialDesign:PackIcon Kind="ViewDashboard" Foreground="Wheat" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
-                            <TextBlock Text="Home" Foreground="Wheat" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock Text="Catalogue" Foreground="Wheat" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
 
-                    <ListViewItem Height="60" >
+                    <ListViewItem x:Name="ItemEdit" Height="60" >
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Pencil" Foreground="White" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
                             <TextBlock Text="Edit Details" Foreground="White" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
 
-                    <ListViewItem Height="60">
+                    <ListViewItem x:Name="ItemSettings" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Settings" Foreground="White" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
                             <TextBlock Text="Settings" Foreground="White" VerticalAlignment="Center" Margin="20 10"/>
@@ -77,8 +77,21 @@
                     </ListViewItem>
                 </ListView>
             </StackPanel>
-           
 
+
+        </Grid>
+        <Grid Height="456" VerticalAlignment="Top" Panel.ZIndex="-1" Background="#FF0FD1D1" Margin="60,0,0,0">
+            <Grid x:Name="Catalogue" Visibility="Visible">
+                <Label Content="Catalogue" />
+            </Grid>
+
+            <Grid x:Name="Edit" Visibility="Collapsed">
+                <Label Content="Edit" />
+            </Grid>
+
+            <Grid x:Name="Settings" Visibility="Collapsed">
+                <Label Content="Settings" />
+            </Grid>
         </Grid>
 
         <!--<Border Background="AliceBlue" Width="50" Panel.ZIndex="10">
