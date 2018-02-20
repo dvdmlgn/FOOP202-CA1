@@ -4,17 +4,111 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarApplication"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Car Application" Height="375.562" Width="622.331" Loaded="OnLoad">
+        Title="Car Application" Height="486.658" Width="788.483" Loaded="OnLoad">
+
+    <Window.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="60" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1618" Value="200" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1618" Value="60" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="buttonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="buttonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+        </EventTrigger>
+
+    </Window.Triggers>
+    
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="345" VerticalAlignment="Top" Width="614">
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
+
+        <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD346D3"/>
+                    <GradientStop Color="#FF13B0BF" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <StackPanel>
+                <Grid Height="100" Background="Transparent">
+                    <Button x:Name="buttonCloseMenu" Width="60" Height="60"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="buttonCloseMenu_Click">
+                        <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25" Foreground="White"/>
+                    </Button>
+                    <Button x:Name="buttonOpenMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="buttonOpenMenu_Click">
+                        <materialDesign:PackIcon Kind="Menu" Width="25" Height="25" Foreground="White"/>
+                    </Button>
+                </Grid>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent">
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ViewDashboard" Foreground="Wheat" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Home" Foreground="Wheat" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Height="60" >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Pencil" Foreground="White" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Edit Details" Foreground="White" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Settings" Foreground="White" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="Settings" Foreground="White" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+           
+
+        </Grid>
+
+        <!--<Border Background="AliceBlue" Width="50" Panel.ZIndex="10">
+
+        </Border>
+        
+        <TabControl HorizontalAlignment="Left" Height="456" VerticalAlignment="Top" Width="780">
+            <TabItem x:Name="Catalogue" Header="Catalogue">
+                <Grid >
+                    <ListBox HorizontalAlignment="Left" Height="335" Margin="10,83,0,0" VerticalAlignment="Top" Width="258"/>
+                    <RadioButton x:Name="radioButtonAll" Content="All" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <RadioButton x:Name="radioButtonCars" Content="Cars" HorizontalAlignment="Left" Margin="86,10,0,0" VerticalAlignment="Top"/>
+                    <RadioButton x:Name="radioButtonBikes" Content="Bikes" HorizontalAlignment="Left" Margin="154,10,0,0" VerticalAlignment="Top"/>
+                    <RadioButton x:Name="radioButtonVans" Content="Vans" HorizontalAlignment="Left" Margin="224,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxSortBy" Width="120" Margin="111,48,543,357"/>
+                    <Label x:Name="labelSortBy" Content="Sort By" HorizontalAlignment="Left" Margin="48,45,0,0" VerticalAlignment="Top" Width="58"/>
+                </Grid>
             </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5" Margin="0,-1,0,1"/>
+            <TabItem x:Name="Edit" Header="Edit Details">
+                <Grid  Margin="0,-1,0,1">
+                    <Label Content="boo" HorizontalAlignment="Left" Margin="290,79,0,0" VerticalAlignment="Top"/>
+                </Grid>
             </TabItem>
-        </TabControl>
+            <TabItem x:Name="Setting" Header="Settings">
+                <Grid  Margin="0,-1,0,1">
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="317,164,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                </Grid>
+            </TabItem>
+
+        </TabControl>-->
 
 
     </Grid>
