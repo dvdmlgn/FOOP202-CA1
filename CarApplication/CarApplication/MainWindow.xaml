@@ -57,22 +57,22 @@
                 <ListView x:Name="listViewNavbar" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" SelectionChanged="listViewNavbar_SelectionChanged">
                     <ListViewItem x:Name="ItemCatalogue" Height="60">
                         <StackPanel Orientation="Horizontal" >
-                            <materialDesign:PackIcon Kind="ViewDashboard" Foreground="Wheat" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
-                            <TextBlock Text="Catalogue" Foreground="Wheat" VerticalAlignment="Center" Margin="20 10"/>
+                            <materialDesign:PackIcon x:Name="iconCatalogue" Kind="ViewDashboard" Foreground="White" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="textBlockCatalogue" Text="Catalogue" Foreground="White" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
 
                     <ListViewItem x:Name="ItemEdit" Height="60" >
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Pencil" Foreground="White" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
-                            <TextBlock Text="Edit Details" Foreground="White" VerticalAlignment="Center" Margin="20 10"/>
+                            <materialDesign:PackIcon x:Name="iconEdit" Kind="Pencil" Foreground="White" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="textBlockEdit" Text="Edit Details" Foreground="White" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
 
                     <ListViewItem x:Name="ItemSettings" Height="60">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Settings" Foreground="White" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
-                            <TextBlock Text="Settings" Foreground="White" VerticalAlignment="Center" Margin="20 10"/>
+                            <materialDesign:PackIcon x:Name="iconSettings" Kind="Settings" Foreground="White" Width="25" Height="25" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="textBlockSettings" Text="Settings" Foreground="White" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
@@ -81,17 +81,78 @@
 
         </Grid>
         <Grid Height="456" VerticalAlignment="Top" Panel.ZIndex="-1" Background="#FF0FD1D1" Margin="60,0,0,0">
-            <Grid x:Name="Catalogue" Visibility="Visible">
-                <Label Content="Catalogue" />
+            <Grid x:Name="Catalogue" Visibility="Collapsed">
+                <!--<Label Content="Catalogue" />-->
+
+                <RadioButton x:Name="radioButtonAll" Content="All" HorizontalAlignment="Left" Margin="25,14,0,0" VerticalAlignment="Top" Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2"/>
+                <RadioButton x:Name="radioButtonCars" Content="Cars" HorizontalAlignment="Left" Margin="107,14,0,0" VerticalAlignment="Top"  Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2"/>
+                <RadioButton x:Name="radioButtonBikes" Content="Bikes" HorizontalAlignment="Left" Margin="165,14,0,0" VerticalAlignment="Top"  Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2"/>
+                <RadioButton x:Name="radioButtonVans" Content="Vans" HorizontalAlignment="Left" Margin="237,14,0,0" VerticalAlignment="Top"  Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2"/>
+
+                <Label x:Name="labelSortBy" Content="Sort By" HorizontalAlignment="Left" Margin="67,44,0,0" VerticalAlignment="Top" Width="58" Foreground="White"/>
+                <ComboBox x:Name="comboBoxSortBy" Margin="130,44,437,378" Background="Transparent"/>
+
+                <ListBox HorizontalAlignment="Left" Height="341" Margin="25,83,0,0" VerticalAlignment="Top" Width="258" Background="#33050B0F" />
+
+                <Label x:Name="labelVehicleDetails" Content="Vehicle Details" HorizontalAlignment="Left" Margin="453,21,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="155" Height="40" Foreground="White" FontSize="16" IsEnabled="False"/>
+                <Image x:Name="vehicleImage" Margin="405,66,54,227"  />
+
+                <Label Content="Make"  HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="405,245,0,0" VerticalAlignment="Top" Width="58" Foreground="White"/>
+                <Label x:Name="labelMake" Content="Label" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="492,245,0,0" VerticalAlignment="Top" Width="65" Foreground="White"/>
+                <Label Content="Model" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="419,276,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <Label x:Name="labelModel" Content="Label" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="492,276,0,0" VerticalAlignment="Top" Width="65" Foreground="White"/>
+                <Label Content="Price" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="427,307,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <Label Content="Year"  HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="431,338,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <Label x:Name="labelPrice" Content="Label" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="492,307,0,0" VerticalAlignment="Top" Foreground="White" Width="65"/>
+                <Label x:Name="labelYear" Content="Label" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="492,338,0,0" VerticalAlignment="Top" Foreground="White" Width="65"/>
             </Grid>
 
-            <Grid x:Name="Edit" Visibility="Collapsed">
+            <Grid x:Name="Edit" Visibility="Visible">
+
                 <Label Content="Edit" />
+
+                <Grid Height="40" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                   
+                    <Button x:Name="buttonAdd" Uid="0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Content="Add"  Background="#FF924BC3" BorderBrush="{x:Null}" Foreground="#FFF0F2F5" FontWeight="Bold" Click="buttonAdd_Click"/>
+                    <Button x:Name="buttonEdit" Uid="1" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Content="Edit" Background="#FF924BC3" BorderBrush="{x:Null}" Foreground="#FFF0F2F5" FontWeight="Bold" Click="buttonEdit_Click"/>
+                    <Button x:Name="buttonDelete" Uid="2" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Content="Delete" Background="#FF924BC3" BorderBrush="{x:Null}" Foreground="#FFF0F2F5" FontWeight="Bold" Click="buttonDelete_Click"/>
+                    
+                </Grid>
+
+                <Grid x:Name="gridAdd" Margin="0,40,0,0" Visibility="Visible">
+                    <Label Content="Add a Car" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="297,10,0,0" VerticalAlignment="Top" Width="134" Foreground="White"/>
+
+
+                </Grid>
+
+                <Grid x:Name="gridEdit" Margin="0,40,0,0" Visibility="Collapsed">
+                    <Label Content="Edit a Car" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="297,10,0,0" VerticalAlignment="Top" Width="134" Foreground="White"/>
+
+                </Grid>
+
+                <Grid x:Name="gridDelete" Margin="0,40,0,0" Visibility="Collapsed">
+                    <Label Content="Delete a Car" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="297,10,0,0" VerticalAlignment="Top" Width="134" Foreground="White"/>
+
+                </Grid>
+
+
             </Grid>
 
             <Grid x:Name="Settings" Visibility="Collapsed">
-                <Label Content="Settings" />
+                <!--<Label Content="Settings" />-->
+                <Button Content="Save" HorizontalAlignment="Left" Margin="248,109,0,0" VerticalAlignment="Top" Width="190" Background="{x:Null}" Foreground="White" BorderBrush="#FFEEEEEE" Height="51"/>
+
+                <Button Content="Load" HorizontalAlignment="Left" Margin="248,186,0,0" VerticalAlignment="Top" Width="190" Background="{x:Null}" Foreground="White" BorderBrush="#FFDADADA" Height="42"/>
             </Grid>
+
         </Grid>
 
         <!--<Border Background="AliceBlue" Width="50" Panel.ZIndex="10">

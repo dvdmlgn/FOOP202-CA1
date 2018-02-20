@@ -67,23 +67,86 @@ namespace CarApplication
                     case "ItemCatalogue":
                         Catalogue.Visibility = Visibility.Visible;
                         Edit.Visibility      = Visibility.Collapsed;
-                        Settings.Visibility = Visibility.Collapsed;
+                        Settings.Visibility  = Visibility.Collapsed;
+
+
+                        iconCatalogue.Foreground = Brushes.Wheat;
+                        textBlockCatalogue.Foreground = Brushes.Wheat;
+
+                        iconEdit.Foreground = Brushes.White;
+                        textBlockEdit.Foreground = Brushes.White;
+
+                        iconSettings.Foreground = Brushes.White;
+                        textBlockSettings.Foreground = Brushes.White;
                         break;
 
                     case "ItemEdit":
                         Catalogue.Visibility = Visibility.Collapsed;
-                        Edit.Visibility = Visibility.Visible;
-                        Settings.Visibility = Visibility.Collapsed;
+                        Edit.Visibility      = Visibility.Visible;
+                        Settings.Visibility  = Visibility.Collapsed;
+
+
+                        iconCatalogue.Foreground = Brushes.White;
+                        textBlockCatalogue.Foreground = Brushes.White;
+
+                        iconEdit.Foreground = Brushes.Wheat;
+                        textBlockEdit.Foreground = Brushes.Wheat;
+
+                        iconSettings.Foreground = Brushes.White;
+                        textBlockSettings.Foreground = Brushes.White;
                         break;
 
                     case "ItemSettings":
                         Catalogue.Visibility = Visibility.Collapsed;
-                        Edit.Visibility = Visibility.Collapsed;
-                        Settings.Visibility = Visibility.Visible;
+                        Edit.Visibility      = Visibility.Collapsed;
+                        Settings.Visibility  = Visibility.Visible;
+
+
+                        iconCatalogue.Foreground = Brushes.White;
+                        textBlockCatalogue.Foreground = Brushes.White;
+
+                        iconEdit.Foreground = Brushes.White;
+                        textBlockEdit.Foreground = Brushes.White;
+
+                        iconSettings.Foreground = Brushes.Wheat;
+                        textBlockSettings.Foreground = Brushes.Wheat;
                         break;
                 }
 
             }
+        }
+
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            gridAdd.Visibility    = Visibility.Visible;
+            gridEdit.Visibility   = Visibility.Collapsed;
+            gridDelete.Visibility = Visibility.Collapsed;
+
+            buttonAdd.Foreground = Brushes.Wheat;
+            buttonEdit.Foreground = Brushes.White;
+            buttonDelete.Foreground = Brushes.White;
+        }
+
+        private void buttonEdit_Click(object sender, RoutedEventArgs e)
+        {
+            gridAdd.Visibility = Visibility.Collapsed;
+            gridEdit.Visibility = Visibility.Visible;
+            gridDelete.Visibility = Visibility.Collapsed;
+
+            buttonAdd.Foreground = Brushes.White;
+            buttonEdit.Foreground = Brushes.Wheat;
+            buttonDelete.Foreground = Brushes.White;
+        }
+
+        private void buttonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            gridAdd.Visibility = Visibility.Collapsed;
+            gridEdit.Visibility = Visibility.Collapsed;
+            gridDelete.Visibility = Visibility.Visible;
+
+            buttonAdd.Foreground = Brushes.White;
+            buttonEdit.Foreground = Brushes.White;
+            buttonDelete.Foreground = Brushes.Wheat;
         }
     }
 }
