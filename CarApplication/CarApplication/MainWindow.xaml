@@ -81,7 +81,7 @@
 
         </Grid>
         <Grid Height="456" VerticalAlignment="Top" Panel.ZIndex="-1" Background="#FF0FD1D1" Margin="60,0,0,0">
-            <Grid x:Name="Catalogue" Visibility="Collapsed">
+            <Grid x:Name="Catalogue" Visibility="Visible">
                 <!--<Label Content="Catalogue" />-->
 
                 <RadioButton x:Name="radioButtonAll" Content="All" HorizontalAlignment="Left" Margin="25,14,0,0" VerticalAlignment="Top" Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2"/>
@@ -107,7 +107,7 @@
                 <Label x:Name="labelYear" Content="Label" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="492,338,0,0" VerticalAlignment="Top" Foreground="White" Width="65"/>
             </Grid>
 
-            <Grid x:Name="Edit" Visibility="Visible">
+            <Grid x:Name="Edit" Visibility="Collapsed">
 
                 <Label Content="Edit" />
 
@@ -120,27 +120,46 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                   
+
                     <Button x:Name="buttonAdd" Uid="0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Content="Add"  Background="#FF924BC3" BorderBrush="{x:Null}" Foreground="#FFF0F2F5" FontWeight="Bold" Click="buttonAdd_Click"/>
                     <Button x:Name="buttonEdit" Uid="1" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Content="Edit" Background="#FF924BC3" BorderBrush="{x:Null}" Foreground="#FFF0F2F5" FontWeight="Bold" Click="buttonEdit_Click"/>
                     <Button x:Name="buttonDelete" Uid="2" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Content="Delete" Background="#FF924BC3" BorderBrush="{x:Null}" Foreground="#FFF0F2F5" FontWeight="Bold" Click="buttonDelete_Click"/>
-                    
+
                 </Grid>
 
                 <Grid x:Name="gridAdd" Margin="0,40,0,0" Visibility="Visible">
                     <Label Content="Add a Car" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="297,10,0,0" VerticalAlignment="Top" Width="134" Foreground="White"/>
 
+                    <Label Content="Make"  HorizontalAlignment="Left" HorizontalContentAlignment="Right"  VerticalAlignment="Top" Width="58" Foreground="White" Margin="283,52,0,0"/>
+                    <TextBox Text="" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="366,56,0,0" Background="#3F15A0AE" VerticalAlignment="Top" Width="65" Foreground="White" SelectionBrush="#FFE50BFB"/>
+                    <Label Content="Model" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="297,83,0,0" VerticalAlignment="Top" Foreground="White"/>
+                    <TextBox Text="" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="366,87,0,0" Background="#3F15A0AE" VerticalAlignment="Top" Width="65" Foreground="White" SelectionBrush="#FFE50BFB"/>
+                    <Label Content="Price" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="305,119,0,0" VerticalAlignment="Top" Foreground="White"/>
+                    <Label Content="Year"  HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="305,154,0,0" VerticalAlignment="Top" Foreground="White"/>
+                    <TextBox Text="" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="366,123,0,0" Background="#3F15A0AE" VerticalAlignment="Top" Foreground="White" Width="65" SelectionBrush="#FFE50BFB"/>
+                    <TextBox Text="" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="366,158,0,0" Background="#3F15A0AE" VerticalAlignment="Top" Foreground="White" Width="65" SelectionBrush="#FFE50BFB"/>
 
+                    <Button Content="Save" HorizontalAlignment="Left" Margin="240,291,0,0" VerticalAlignment="Top" Width="101" Background="{x:Null}" Foreground="White" BorderBrush="#FFEEEEEE" Height="27"/>
+
+                    <Button Content="Cancel" HorizontalAlignment="Left" Margin="380,291,0,0" VerticalAlignment="Top" Width="88" Background="{x:Null}" Foreground="White" BorderBrush="#FFDADADA" Height="27"/>
                 </Grid>
 
                 <Grid x:Name="gridEdit" Margin="0,40,0,0" Visibility="Collapsed">
                     <Label Content="Edit a Car" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="297,10,0,0" VerticalAlignment="Top" Width="134" Foreground="White"/>
 
+                    <ListBox HorizontalAlignment="Left" Height="312" Margin="25,59,0,0" VerticalAlignment="Top" Width="258" Background="#33050B0F" />
+                    <Label Content="Select a Car" HorizontalAlignment="Left" Margin="91,28,0,0" VerticalAlignment="Top" Width="103" Foreground="White"/>
+
+                    <Button Content="Edit" HorizontalAlignment="Left" Margin="397,255,0,0" VerticalAlignment="Top" Width="101" Background="{x:Null}" Foreground="White" BorderBrush="#FFEEEEEE" Height="27"/>
                 </Grid>
 
                 <Grid x:Name="gridDelete" Margin="0,40,0,0" Visibility="Collapsed">
                     <Label Content="Delete a Car" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="297,10,0,0" VerticalAlignment="Top" Width="134" Foreground="White"/>
 
+                    <ListBox HorizontalAlignment="Left" Height="312" Margin="25,59,0,0" VerticalAlignment="Top" Width="258" Background="#33050B0F" />
+                    <Label Content="Select a Car" HorizontalAlignment="Left" Margin="91,28,0,0" VerticalAlignment="Top" Width="103" Foreground="White"/>
+
+                    <Button Content="Delete" HorizontalAlignment="Left" Margin="397,255,0,0" VerticalAlignment="Top" Width="101" Background="{x:Null}" Foreground="White" BorderBrush="#FFEEEEEE" Height="27"/>
                 </Grid>
 
 
