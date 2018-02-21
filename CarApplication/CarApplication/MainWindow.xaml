@@ -84,15 +84,15 @@
             <Grid x:Name="Catalogue" Visibility="Visible">
                 <!--<Label Content="Catalogue" />-->
 
-                <RadioButton x:Name="radioButtonAll" Content="All" HorizontalAlignment="Left" Margin="25,14,0,0" VerticalAlignment="Top" Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2"/>
-                <RadioButton x:Name="radioButtonCars" Content="Cars" HorizontalAlignment="Left" Margin="107,14,0,0" VerticalAlignment="Top"  Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2"/>
-                <RadioButton x:Name="radioButtonBikes" Content="Bikes" HorizontalAlignment="Left" Margin="165,14,0,0" VerticalAlignment="Top"  Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2"/>
-                <RadioButton x:Name="radioButtonVans" Content="Vans" HorizontalAlignment="Left" Margin="237,14,0,0" VerticalAlignment="Top"  Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2"/>
+                <RadioButton x:Name="radioButtonAll" Content="All" HorizontalAlignment="Left" Margin="25,14,0,0" VerticalAlignment="Top" Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2" Click="radioButtonAll_Click"/>
+                <RadioButton x:Name="radioButtonCars" Content="Cars" HorizontalAlignment="Left" Margin="107,14,0,0" VerticalAlignment="Top"  Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2" Click="radioButtonCars_Click"/>
+                <RadioButton x:Name="radioButtonBikes" Content="Bikes" HorizontalAlignment="Left" Margin="165,14,0,0" VerticalAlignment="Top"  Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2" Click="radioButtonBikes_Click"/>
+                <RadioButton x:Name="radioButtonVans" Content="Vans" HorizontalAlignment="Left" Margin="237,14,0,0" VerticalAlignment="Top"  Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2" Click="radioButtonVans_Click"/>
 
                 <Label x:Name="labelSortBy" Content="Sort By" HorizontalAlignment="Left" Margin="67,44,0,0" VerticalAlignment="Top" Width="58" Foreground="White"/>
-                <ComboBox x:Name="comboBoxSortBy" Margin="130,44,437,378" Background="Transparent"/>
+                <ComboBox x:Name="comboBoxSortBy" Margin="130,44,437,378" Background="Transparent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionChanged="comboBoxSortBy_SelectionChanged"/>
 
-                <ListBox HorizontalAlignment="Left" Height="341" Margin="25,83,0,0" VerticalAlignment="Top" Width="258" Background="#33050B0F" />
+                <ListBox x:Name="listBoxCatalogue" HorizontalAlignment="Left" Height="341" Margin="25,83,0,0" VerticalAlignment="Top" Width="258" Background="#33050B0F" Foreground="white" />
 
                 <Label x:Name="labelVehicleDetails" Content="Vehicle Details" HorizontalAlignment="Left" Margin="453,21,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="155" Height="40" Foreground="White" FontSize="16" IsEnabled="False"/>
                 <Image x:Name="vehicleImage" Margin="405,66,54,227"  />

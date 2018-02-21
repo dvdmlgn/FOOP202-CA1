@@ -69,6 +69,7 @@
     <Compile Include="Car.cs" />
     <Compile Include="Van.cs" />
     <Compile Include="Vehicle.cs" />
+    <Compile Include="VehicleBase.cs" />
     <Compile Include="VehicleFactory.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

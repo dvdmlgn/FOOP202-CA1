@@ -28,7 +28,7 @@ namespace CarApplication
 
         public override string ToString()
         {
-            return Make + ", " + Model;
+            return Make + ", " + Model + "\n- " + Price + ", " + Mileage;
         }
     }
 }

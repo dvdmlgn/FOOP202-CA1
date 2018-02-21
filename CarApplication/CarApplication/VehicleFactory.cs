@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +11,9 @@ namespace CarApplication
     {
         private static Random random = new Random();
 
-        public static List<Vehicle> ProductionLine(int unitsToMake)
+        public static ObservableCollection<Vehicle> ProductionLine(int unitsToMake)
         {
-            List<Vehicle> vehicles = new List<Vehicle>();
+            ObservableCollection<Vehicle> vehicles = new ObservableCollection<Vehicle>();
 
             for(int i = 0; i < unitsToMake; i++)
             {
@@ -41,16 +42,33 @@ namespace CarApplication
                     // we don't cast to type 'Car' because every new vehicle instance
                     // will a 'Car' be default
 
+                    vehicle.Make = MainWindow.carsBase[random.Next(0, 3)].Make;
+                    vehicle.Model = MainWindow.carsBase[random.Next(0, 3)].Models[random.Next(0, 2)];
+
+                    vehicle.Mileage = random.Next(5000, 89000);
+                    vehicle.Price = random.Next(8000, 45000);
+
                     break;
 
                 case VehicleType.Bike:
-                    vehicle = vehicle as Bike;
+                    vehicle = new Bike();
 
+                    vehicle.Make = MainWindow.bikesBase[random.Next(0, 2)].Make;
+                    vehicle.Model = MainWindow.bikesBase[random.Next(0, 2)].Models[random.Next(0, 2)];
+
+                    vehicle.Mileage = random.Next(5000, 89000);
+                    vehicle.Price = random.Next(8000, 45000);
 
                     break;
 
                 case VehicleType.Van:
-                    vehicle = vehicle as Van;
+                    vehicle = new Van();
+
+                    vehicle.Make = MainWindow.carsBase[random.Next(0, 2)].Make;
+                    vehicle.Model = MainWindow.carsBase[random.Next(0, 2)].Models[random.Next(0, 2)];
+
+                    vehicle.Mileage = random.Next(5000, 89000);
+                    vehicle.Price = random.Next(8000, 45000);
 
                     break;
             }
