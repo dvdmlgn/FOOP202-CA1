@@ -229,6 +229,8 @@ namespace CarApplication
             gridEdit.Visibility = Visibility.Collapsed;
             gridDelete.Visibility = Visibility.Collapsed;
 
+            gridEditDetails.Visibility = Visibility.Collapsed;
+
             buttonAdd.Foreground = Brushes.Wheat;
             buttonEdit.Foreground = Brushes.White;
             buttonDelete.Foreground = Brushes.White;
@@ -240,6 +242,8 @@ namespace CarApplication
             gridEdit.Visibility = Visibility.Visible;
             gridDelete.Visibility = Visibility.Collapsed;
 
+            gridEditDetails.Visibility = Visibility.Collapsed;
+
             buttonAdd.Foreground = Brushes.White;
             buttonEdit.Foreground = Brushes.Wheat;
             buttonDelete.Foreground = Brushes.White;
@@ -250,6 +254,8 @@ namespace CarApplication
             gridAdd.Visibility = Visibility.Collapsed;
             gridEdit.Visibility = Visibility.Collapsed;
             gridDelete.Visibility = Visibility.Visible;
+
+            gridEditDetails.Visibility = Visibility.Collapsed;
 
             buttonAdd.Foreground = Brushes.White;
             buttonEdit.Foreground = Brushes.White;
@@ -412,6 +418,48 @@ namespace CarApplication
                     }
                 }
             }
+        }
+
+        private void buttonEditDetails_Click(object sender, RoutedEventArgs e)
+        {
+            if (listBoxEdit.SelectedItem != null)
+            {
+                var selectedItem = listBoxEdit.SelectedItem as Vehicle;
+
+                gridEdit.Visibility = Visibility.Collapsed;
+                gridEditDetails.Visibility = Visibility.Visible;
+
+                textBoxEditMake.Text = selectedItem.Make;
+                textBoxEditModel.Text = selectedItem.Model;
+                textBoxEditPrice.Text = selectedItem.Price.ToString();
+                //textBoxEditYear.Text = selectedItem.Year;
+
+            }
+        }
+
+        private void buttonEditSave_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = listBoxEdit.SelectedItem as Vehicle;
+            int hashCode = listBoxEdit.SelectedItem.GetHashCode();
+
+            int itemIndex = -1;
+
+            //Vehicle newVehicle = new Car();
+            for (int i = 0; i < VehicleMaster.Count; i++)
+            {
+                if (VehicleMaster[i].GetHashCode() == hashCode)
+                {
+                    itemIndex = i;
+                    break;
+                }
+            }
+
+            VehicleMaster[itemIndex].Make = textBoxEditMake.Text;
+            VehicleMaster[itemIndex].Model = textBoxEditModel.Text;
+            VehicleMaster[itemIndex].Price = decimal.Parse(textBoxEditPrice.Text);
+
+            listBoxEdit.ItemsSource = VehicleMaster;
+
         }
     }
 }
