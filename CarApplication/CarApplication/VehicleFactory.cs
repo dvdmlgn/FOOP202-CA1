@@ -19,7 +19,7 @@ namespace CarApplication
 
             for(int i = 0; i < unitsToMake; i++)
             {
-                vehicles.Add( NewVehicle( (VehicleType)random.Next(0, 2) ) );  // the project brief specifies to use 3 different types of vehicles
+                vehicles.Add( NewVehicle( (VehicleType)random.Next(0, 3) ) );  // the project brief specifies to use 3 different types of vehicles
             }
 
             return vehicles;

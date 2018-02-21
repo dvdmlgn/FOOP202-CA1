@@ -80,6 +80,9 @@ namespace CarApplication
         {
             comboBoxSortBy.ItemsSource = Enum.GetValues(typeof(SortBy));
             comboBoxSortBy.SelectedIndex = 0;
+
+            comboBoxTypes.ItemsSource = Enum.GetValues(typeof(VehicleType));
+            comboBoxTypes.SelectedIndex = 0;
             // Enum.GetValues(typeof(EffectStyle)).Cast<EffectStyle>();
 
             filepath = Environment.CurrentDirectory;
@@ -356,6 +359,58 @@ namespace CarApplication
 
                 vehicleImage.Source = selectedItem.Image;
 
+            }
+        }
+
+        private void buttonSave_Click(object sender, RoutedEventArgs e)
+        {
+            //VehicleMaster.Add(new Car());
+
+            Vehicle newVehicle = new Car();
+
+            switch (comboBoxTypes.SelectedIndex)
+            {
+                case 0:
+
+                    break;
+
+
+                case 1:
+                    newVehicle = new Bike();
+
+                    break;
+
+
+                case 2:
+                    newVehicle = new Van();
+
+                    break;
+            }
+
+            newVehicle.Make = textBoxMake.Text;
+            newVehicle.Model = textBoxModel.Text;
+            newVehicle.Price = decimal.Parse(textBoxPrice.Text);
+            newVehicle.Mileage = 50000;
+
+            VehicleMaster.Add(newVehicle);
+
+            listBoxCatalogue.ItemsSource = VehicleMaster;
+
+        }
+
+        private void buttonDeleteSelected_Click(object sender, RoutedEventArgs e)
+        {
+            if(listBoxDelete.SelectedItem != null)
+            {
+               int hashCode = listBoxDelete.SelectedItem.GetHashCode();
+
+                for(int i = 0; i < VehicleMaster.Count; i++)
+                {
+                    if(VehicleMaster[i].GetHashCode() == hashCode)
+                    {
+                        VehicleMaster.RemoveAt(i);
+                    }
+                }
             }
         }
     }
