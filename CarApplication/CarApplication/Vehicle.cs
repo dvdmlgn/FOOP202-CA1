@@ -23,7 +23,7 @@ namespace CarApplication
         public Brushes Colour { get; set; }
         public double Mileage { get; set; }
         public string Description { get; set; }
-        // image property
+        public ImageSource Image { get; set; }
 
 
         public override string ToString()

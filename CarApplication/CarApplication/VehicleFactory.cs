@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace CarApplication
 {
@@ -36,6 +38,9 @@ namespace CarApplication
 
         private static void CastToVehicleType(ref Vehicle vehicle, VehicleType type)
         {
+            BitmapImage bitmap = new BitmapImage();
+            ImageBrush imageBrush = new ImageBrush();
+
             switch (type)
             {
                 case VehicleType.Car:
@@ -48,6 +53,15 @@ namespace CarApplication
                     vehicle.Mileage = random.Next(5000, 89000);
                     vehicle.Price = random.Next(8000, 45000);
 
+                    bitmap = new BitmapImage(MainWindow.VehicleImages[random.Next(0, 4)]);
+
+                    imageBrush = new ImageBrush
+                    {
+                        ImageSource = bitmap
+                    };
+
+                    vehicle.Image = imageBrush.ImageSource;
+
                     break;
 
                 case VehicleType.Bike:
@@ -59,6 +73,15 @@ namespace CarApplication
                     vehicle.Mileage = random.Next(5000, 89000);
                     vehicle.Price = random.Next(8000, 45000);
 
+                    bitmap = new BitmapImage(MainWindow.VehicleImages[random.Next(0, 4)]);
+
+                    imageBrush = new ImageBrush
+                    {
+                        ImageSource = bitmap
+                    };
+
+                    vehicle.Image = imageBrush.ImageSource;
+
                     break;
 
                 case VehicleType.Van:
@@ -69,6 +92,15 @@ namespace CarApplication
 
                     vehicle.Mileage = random.Next(5000, 89000);
                     vehicle.Price = random.Next(8000, 45000);
+
+                    bitmap = new BitmapImage(MainWindow.VehicleImages[random.Next(0, 4)]);
+
+                    imageBrush = new ImageBrush
+                    {
+                        ImageSource = bitmap
+                    };
+
+                    vehicle.Image = imageBrush.ImageSource;
 
                     break;
             }

@@ -92,19 +92,19 @@
                 <Label x:Name="labelSortBy" Content="Sort By" HorizontalAlignment="Left" Margin="67,44,0,0" VerticalAlignment="Top" Width="58" Foreground="White"/>
                 <ComboBox x:Name="comboBoxSortBy" Margin="130,44,437,378" Background="Transparent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionChanged="comboBoxSortBy_SelectionChanged"/>
 
-                <ListBox x:Name="listBoxCatalogue" HorizontalAlignment="Left" Height="341" Margin="25,83,0,0" VerticalAlignment="Top" Width="258" Background="#33050B0F" Foreground="white" />
+                <ListBox x:Name="listBoxCatalogue" HorizontalAlignment="Left" Height="341" Margin="25,83,0,0" VerticalAlignment="Top" Width="258" Background="#33050B0F" Foreground="white" SelectionChanged="listBoxCatalogue_SelectionChanged"/>
 
                 <Label x:Name="labelVehicleDetails" Content="Vehicle Details" HorizontalAlignment="Left" Margin="453,21,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="155" Height="40" Foreground="White" FontSize="16" IsEnabled="False"/>
                 <Image x:Name="vehicleImage" Margin="405,66,54,227"  />
 
                 <Label Content="Make"  HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="405,245,0,0" VerticalAlignment="Top" Width="58" Foreground="White"/>
-                <Label x:Name="labelMake" Content="Label" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="492,245,0,0" VerticalAlignment="Top" Width="65" Foreground="White"/>
+                <Label x:Name="labelMake" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="492,245,0,0" VerticalAlignment="Top" Width="116" Foreground="White"/>
                 <Label Content="Model" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="419,276,0,0" VerticalAlignment="Top" Foreground="White"/>
-                <Label x:Name="labelModel" Content="Label" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="492,276,0,0" VerticalAlignment="Top" Width="65" Foreground="White"/>
+                <Label x:Name="labelModel"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="492,276,0,0" VerticalAlignment="Top" Width="116" Foreground="White"/>
                 <Label Content="Price" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="427,307,0,0" VerticalAlignment="Top" Foreground="White"/>
                 <Label Content="Year"  HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="431,338,0,0" VerticalAlignment="Top" Foreground="White"/>
-                <Label x:Name="labelPrice" Content="Label" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="492,307,0,0" VerticalAlignment="Top" Foreground="White" Width="65"/>
-                <Label x:Name="labelYear" Content="Label" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="492,338,0,0" VerticalAlignment="Top" Foreground="White" Width="65"/>
+                <Label x:Name="labelPrice"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="492,307,0,0" VerticalAlignment="Top" Foreground="White" Width="116"/>
+                <Label x:Name="labelYear"  HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="492,338,0,0" VerticalAlignment="Top" Foreground="White" Width="116"/>
             </Grid>
 
             <Grid x:Name="Edit" Visibility="Collapsed">
@@ -147,7 +147,7 @@
                 <Grid x:Name="gridEdit" Margin="0,40,0,0" Visibility="Collapsed">
                     <Label Content="Edit a Car" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="297,10,0,0" VerticalAlignment="Top" Width="134" Foreground="White"/>
 
-                    <ListBox HorizontalAlignment="Left" Height="312" Margin="25,59,0,0" VerticalAlignment="Top" Width="258" Background="#33050B0F" />
+                    <ListBox x:Name="listBoxEdit" HorizontalAlignment="Left" Height="312" Margin="25,59,0,0" VerticalAlignment="Top" Width="258" Background="#33050B0F" Foreground="white"/>
                     <Label Content="Select a Car" HorizontalAlignment="Left" Margin="91,28,0,0" VerticalAlignment="Top" Width="103" Foreground="White"/>
 
                     <Button Content="Edit" HorizontalAlignment="Left" Margin="397,255,0,0" VerticalAlignment="Top" Width="101" Background="{x:Null}" Foreground="White" BorderBrush="#FFEEEEEE" Height="27"/>
@@ -156,7 +156,7 @@
                 <Grid x:Name="gridDelete" Margin="0,40,0,0" Visibility="Collapsed">
                     <Label Content="Delete a Car" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="297,10,0,0" VerticalAlignment="Top" Width="134" Foreground="White"/>
 
-                    <ListBox HorizontalAlignment="Left" Height="312" Margin="25,59,0,0" VerticalAlignment="Top" Width="258" Background="#33050B0F" />
+                    <ListBox x:Name="listBoxDelete" HorizontalAlignment="Left" Height="312" Margin="25,59,0,0" VerticalAlignment="Top" Width="258" Background="#33050B0F" Foreground="white"/>
                     <Label Content="Select a Car" HorizontalAlignment="Left" Margin="91,28,0,0" VerticalAlignment="Top" Width="103" Foreground="White"/>
 
                     <Button Content="Delete" HorizontalAlignment="Left" Margin="397,255,0,0" VerticalAlignment="Top" Width="101" Background="{x:Null}" Foreground="White" BorderBrush="#FFEEEEEE" Height="27"/>

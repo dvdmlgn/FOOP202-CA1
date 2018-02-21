@@ -46,9 +46,27 @@ namespace CarApplication
 
         public static ObservableCollection<Vehicle> VehicleCatalogue = new ObservableCollection<Vehicle>();
 
+        public static List<Uri> VehicleImages = new List<Uri>();
 
 
-        //public string filepath = "";
+        //    string filepath = Environment.CurrentDirectory;
+        //filepath = filepath.Substring(0, filepath.Length - 9);
+        //        filepath += "kermie.JPG";
+
+        //        Uri uri = new Uri(filepath, UriKind.RelativeOrAbsolute);
+        //BitmapImage bitmap = new BitmapImage(uri);
+
+        //ImageBrush imageBrush = new ImageBrush
+        //{
+        //    ImageSource = bitmap
+        //};
+
+        ////obsticle.Fill = imageBrush;
+        //player.CollisionMask.Fill = imageBrush;
+
+
+
+        public string filepath = "";
 
 
         //public string VehicleDBjson = "";
@@ -64,8 +82,15 @@ namespace CarApplication
             comboBoxSortBy.SelectedIndex = 0;
             // Enum.GetValues(typeof(EffectStyle)).Cast<EffectStyle>();
 
-            //filepath = Environment.CurrentDirectory;
-            //filepath = filepath.Substring(0, filepath.Length - 9);
+            filepath = Environment.CurrentDirectory;
+            filepath = filepath.Substring(0, filepath.Length - 9);
+            filepath += "/Assets/";
+
+
+            VehicleImages.Add(new Uri(filepath + "FordFocus.jpg", UriKind.RelativeOrAbsolute));
+            VehicleImages.Add(new Uri(filepath + "FordFiesta.png", UriKind.RelativeOrAbsolute));
+            VehicleImages.Add(new Uri(filepath + "Bmw1Series.jpg", UriKind.RelativeOrAbsolute));
+            VehicleImages.Add(new Uri(filepath + "Bmw2Series.png", UriKind.RelativeOrAbsolute));
 
             //testLabel.Content = "success";
 
@@ -112,6 +137,14 @@ namespace CarApplication
 
             listBoxCatalogue.ItemsSource = VehicleCatalogue;
 
+
+
+            listBoxEdit.ItemsSource = VehicleMaster;
+
+            listBoxDelete.ItemsSource = VehicleMaster;
+
+
+            //vehicleImage.Source
 
         }
 
@@ -309,6 +342,21 @@ namespace CarApplication
 
             listBoxCatalogue.ItemsSource = VehicleCatalogue;
 
+        }
+
+        private void listBoxCatalogue_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(listBoxCatalogue.SelectedItem != null)
+            {
+                var selectedItem = listBoxCatalogue.SelectedItem as Vehicle;
+
+                labelMake.Content = selectedItem.Make;
+                labelModel.Content = selectedItem.Model;
+                labelPrice.Content = selectedItem.Price;
+
+                vehicleImage.Source = selectedItem.Image;
+
+            }
         }
     }
 }
