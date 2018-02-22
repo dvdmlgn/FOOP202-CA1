@@ -49,23 +49,6 @@ namespace CarApplication
         public static List<Uri> VehicleImages = new List<Uri>();
 
 
-        //    string filepath = Environment.CurrentDirectory;
-        //filepath = filepath.Substring(0, filepath.Length - 9);
-        //        filepath += "kermie.JPG";
-
-        //        Uri uri = new Uri(filepath, UriKind.RelativeOrAbsolute);
-        //BitmapImage bitmap = new BitmapImage(uri);
-
-        //ImageBrush imageBrush = new ImageBrush
-        //{
-        //    ImageSource = bitmap
-        //};
-
-        ////obsticle.Fill = imageBrush;
-        //player.CollisionMask.Fill = imageBrush;
-
-
-
         public string filepath = "";
 
 
@@ -83,7 +66,7 @@ namespace CarApplication
 
             comboBoxTypes.ItemsSource = Enum.GetValues(typeof(VehicleType));
             comboBoxTypes.SelectedIndex = 0;
-            // Enum.GetValues(typeof(EffectStyle)).Cast<EffectStyle>();
+            //Enum.GetValues(typeof(EffectStyle)).Cast<EffectStyle>();
 
             filepath = Environment.CurrentDirectory;
             filepath = filepath.Substring(0, filepath.Length - 9);
@@ -297,9 +280,9 @@ namespace CarApplication
 
             ObservableCollection<Vehicle> cars = new ObservableCollection<Vehicle>();
 
-            foreach(Vehicle vehicle in VehicleMaster)
+            foreach (Vehicle vehicle in VehicleMaster)
             {
-                if(vehicle is Car)
+                if (vehicle is Car)
                 {
                     cars.Add(vehicle);
                 }
@@ -355,8 +338,10 @@ namespace CarApplication
 
         private void listBoxCatalogue_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(listBoxCatalogue.SelectedItem != null)
+            if (listBoxCatalogue.SelectedItem != null)
             {
+                card.Visibility = Visibility.Visible;
+
                 var selectedItem = listBoxCatalogue.SelectedItem as Vehicle;
 
                 labelMake.Content = selectedItem.Make;
@@ -406,13 +391,16 @@ namespace CarApplication
 
         private void buttonDeleteSelected_Click(object sender, RoutedEventArgs e)
         {
-            if(listBoxDelete.SelectedItem != null)
+            if (listBoxDelete.SelectedItem != null)
             {
-               int hashCode = listBoxDelete.SelectedItem.GetHashCode();
+                int hashCode = listBoxDelete.SelectedItem.GetHashCode();
 
-                for(int i = 0; i < VehicleMaster.Count; i++)
+                // Finds the selected item in the Vehicle Master Collection
+                // by comparing each items hashCode,
+                // and then deletes it
+                for (int i = 0; i < VehicleMaster.Count; i++)
                 {
-                    if(VehicleMaster[i].GetHashCode() == hashCode)
+                    if (VehicleMaster[i].GetHashCode() == hashCode)
                     {
                         VehicleMaster.RemoveAt(i);
                     }
@@ -439,12 +427,23 @@ namespace CarApplication
 
         private void buttonEditSave_Click(object sender, RoutedEventArgs e)
         {
+            #region Properties
+            // ----------------------------------------------------------------------------------------------------------------------------------------------------
+
             var selectedItem = listBoxEdit.SelectedItem as Vehicle;
             int hashCode = listBoxEdit.SelectedItem.GetHashCode();
 
             int itemIndex = -1;
 
-            //Vehicle newVehicle = new Car();
+            // ----------------------------------------------------------------------------------------------------------------------------------------------------
+            #endregion
+
+
+            #region find selected item in Vehicle Master Collection
+            // ----------------------------------------------------------------------------------------------------------------------------------------------------
+
+            // Finds the selected item in the Vehicle Master Collection
+            // by comparing each items hashCode
             for (int i = 0; i < VehicleMaster.Count; i++)
             {
                 if (VehicleMaster[i].GetHashCode() == hashCode)
@@ -454,12 +453,28 @@ namespace CarApplication
                 }
             }
 
+            // ----------------------------------------------------------------------------------------------------------------------------------------------------
+            #endregion
+
+
+            #region update vehicle details
+            // ----------------------------------------------------------------------------------------------------------------------------------------------------
+
             VehicleMaster[itemIndex].Make = textBoxEditMake.Text;
             VehicleMaster[itemIndex].Model = textBoxEditModel.Text;
             VehicleMaster[itemIndex].Price = decimal.Parse(textBoxEditPrice.Text);
 
+            // ----------------------------------------------------------------------------------------------------------------------------------------------------
+            #endregion
+
+
+            #region update listBoxes
+            // ----------------------------------------------------------------------------------------------------------------------------------------------------
+
             listBoxEdit.ItemsSource = VehicleMaster;
 
+            // ----------------------------------------------------------------------------------------------------------------------------------------------------
+            #endregion
         }
     }
 }
