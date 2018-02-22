@@ -46,7 +46,9 @@
 
 
     <Grid Background="#FF0FD1D1">
-
+        
+        <!--#region Menu -->
+        
         <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="#E5E91E63">
             <!--<Grid.Background>
                 -->
@@ -91,53 +93,92 @@
             </StackPanel>
 
         </Grid>
+        
+        <!--#endregion -->
 
 
         <Grid Height="456" VerticalAlignment="Top" Panel.ZIndex="-1" Margin="60,0,0,0">
-
+            
+            <!--#region Catalogue -->
+            
             <Grid x:Name="Catalogue" Visibility="Visible">
 
-                <RadioButton x:Name="radioButtonAll" Content="All" HorizontalAlignment="Left" Margin="25,14,0,0" VerticalAlignment="Top" Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2" Click="radioButtonAll_Click"/>
-                <RadioButton x:Name="radioButtonCars" Content="Cars" HorizontalAlignment="Left" Margin="107,14,0,0" VerticalAlignment="Top"  Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2" Click="radioButtonCars_Click"/>
-                <RadioButton x:Name="radioButtonBikes" Content="Bikes" HorizontalAlignment="Left" Margin="165,14,0,0" VerticalAlignment="Top"  Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2" Click="radioButtonBikes_Click"/>
-                <RadioButton x:Name="radioButtonVans" Content="Vans" HorizontalAlignment="Left" Margin="237,14,0,0" VerticalAlignment="Top"  Background="Transparent" Foreground="White" BorderBrush="White" BorderThickness="2" Click="radioButtonVans_Click"/>
+                <!--#region sort & filter -->
 
-                <Label x:Name="labelSortBy" Content="Sort By" HorizontalAlignment="Left" Margin="67,44,0,0" VerticalAlignment="Top" Width="58" Foreground="White"/>
-                <ComboBox x:Name="comboBoxSortBy" Margin="130,44,437,378" Background="Transparent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionChanged="comboBoxSortBy_SelectionChanged"/>
+                <RadioButton x:Name="radioButtonAll"     Content="All"        Click="radioButtonAll_Click"
+                             HorizontalAlignment="Left"  Margin="25,14,0,0"   VerticalAlignment="Top"        Foreground="White"  BorderBrush="White"  BorderThickness="2" />
+                
+                <RadioButton x:Name="radioButtonCars"    Content="Cars"       Click="radioButtonCars_Click"
+                             HorizontalAlignment="Left"  Margin="107,14,0,0"  VerticalAlignment="Top"        Foreground="White"  BorderBrush="White"  BorderThickness="2" />
+                
+                <RadioButton x:Name="radioButtonBikes"   Content="Bikes"      Click="radioButtonBikes_Click"
+                             HorizontalAlignment="Left"  Margin="165,14,0,0"  VerticalAlignment="Top"        Foreground="White"  BorderBrush="White"  BorderThickness="2" />
+                
+                <RadioButton x:Name="radioButtonVans"    Content="Vans"       Click="radioButtonVans_Click"
+                             HorizontalAlignment="Left"  Margin="237,14,0,0"  VerticalAlignment="Top"        Foreground="White"  BorderBrush="White"  BorderThickness="2" />
+                
 
-                <ListBox x:Name="listBoxCatalogue" HorizontalAlignment="Left" Height="341" Margin="25,83,0,0" VerticalAlignment="Top" Width="258" Background="#33050B0F" Foreground="white" SelectionChanged="listBoxCatalogue_SelectionChanged"/>
+                <Label      x:Name="labelSortBy"         Content="Sort By" 
+                            HorizontalAlignment="Left"   Margin="67,44,0,0"   VerticalAlignment="Top"        Foreground="White"   Width="58"/>
+                
+                <ComboBox   x:Name="comboBoxSortBy"      SelectionChanged="comboBoxSortBy_SelectionChanged"
+                            Margin="130,44,437,378"      HorizontalContentAlignment="Center"                 VerticalContentAlignment="Center" />
+                
+                <!--#endregion -->
+                
+                <!--#region display-->
+                
+                <ListBox x:Name="listBoxCatalogue"  SelectionChanged="listBoxCatalogue_SelectionChanged"
+                         HorizontalAlignment="Left" VerticalAlignment="Top"  Height="341"  Width="258"   Margin="25,83,0,0"  Background="#33050B0F"  Foreground="white" />
 
 
                 <materialDesign:Card x:Name="card"  Margin="178,10,36,0" Height="414" Visibility="Visible">
                     <Grid>
+                        
                         <Label x:Name="labelVehicleDetails" Content="Vehicle Details" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="276" Height="40" Foreground="Black" FontSize="16" IsEnabled="False"/>
                 
                         <Image x:Name="vehicleImage" Height="120" Margin="0,29,0,255"  />
                         
                         
-                        <Label Content="Make"  HorizontalAlignment="Left" HorizontalContentAlignment="Right"  VerticalAlignment="Top" Width="58" Foreground="Teal" FontWeight="Medium" Margin="26,165,0,0"/>
-                        <Label x:Name="labelMake" Content="Make" HorizontalAlignment="Left" HorizontalContentAlignment="Left"  VerticalAlignment="Top" Width="171" Foreground="LightSlateGray" Height="24" Margin="111,165,0,0"/>
-
-                        <Label Content="Model" HorizontalAlignment="Left" HorizontalContentAlignment="Right"  VerticalAlignment="Top" Foreground="Teal" FontWeight="Medium" Margin="40,189,0,0"/>
-                        <Label x:Name="labelModel" Content="Modle"   HorizontalAlignment="Left" HorizontalContentAlignment="Left"  VerticalAlignment="Top" Width="171" Foreground="LightSlateGray" Margin="111,189,0,0"/>
-
-                        <Label Content="Price" HorizontalAlignment="Left" HorizontalContentAlignment="Right"  VerticalAlignment="Top" Foreground="Teal" FontWeight="Medium" Margin="40,213,0,0" Width="45"/>
-                        <Label x:Name="labelPrice" Content="Price"  HorizontalAlignment="Left" HorizontalContentAlignment="Left"  VerticalAlignment="Top" Foreground="LightSlateGray" Width="171" Margin="111,213,0,0" Height="24"/>
+                        <Label Content="Make"       HorizontalAlignment="Left" HorizontalContentAlignment="Right"  VerticalAlignment="Top" 
+                               Width="58"           Foreground="Teal"  FontWeight="Medium"  Margin="26,165,0,0"/>
                         
-                        <Label Content="Year"  HorizontalAlignment="Left" HorizontalContentAlignment="Right"  VerticalAlignment="Top" Foreground="Teal" FontWeight="Medium" Margin="51,237,0,0"/>
-                        <Label x:Name="labelYear" Content="Year"  HorizontalAlignment="Left" HorizontalContentAlignment="Left"  VerticalAlignment="Top" Foreground="LightSlateGray" Width="116" Margin="111,237,0,0"/>  
+                        <Label x:Name="labelMake"   HorizontalAlignment="Left" HorizontalContentAlignment="Left"  VerticalAlignment="Top" 
+                               Width="171"          Foreground="LightSlateGray"  Height="24"  Margin="111,165,0,0"/>
+
+                        
+                        <Label Content="Model"      HorizontalAlignment="Left" HorizontalContentAlignment="Right"  VerticalAlignment="Top" 
+                               Foreground="Teal"    FontWeight="Medium" Margin="40,189,0,0"/>
+                        
+                        <Label x:Name="labelModel"  HorizontalAlignment="Left" HorizontalContentAlignment="Left"  VerticalAlignment="Top" 
+                               Width="171"          Foreground="LightSlateGray" Margin="111,189,0,0"/>
+                        
+
+                        <Label Content="Price"      HorizontalAlignment="Left" HorizontalContentAlignment="Right"  VerticalAlignment="Top" 
+                               Foreground="Teal"    FontWeight="Medium" Margin="40,213,0,0" Width="45"/>
+                        
+                        <Label x:Name="labelPrice"  HorizontalAlignment="Left" HorizontalContentAlignment="Left"  VerticalAlignment="Top" 
+                               Width="171"          Foreground="LightSlateGray"  Margin="111,213,0,0" Height="24"/>
+                        
+                        
+                        <Label Content="Year"       HorizontalAlignment="Left" HorizontalContentAlignment="Right"  VerticalAlignment="Top" 
+                                                    Foreground="Teal" FontWeight="Medium" Margin="51,237,0,0"/>
+                        
+                        <Label x:Name="labelYear"   HorizontalAlignment="Left" HorizontalContentAlignment="Left"  VerticalAlignment="Top" 
+                               Width="116"          Foreground="LightSlateGray" Margin="111,237,0,0"/>  
                         
                     </Grid>
                 </materialDesign:Card>
-
-
-
-
                 
+                <!--#endregion -->
 
-                
             </Grid>
-
+            
+            <!--#endregion -->
+            
+            
+            <!--#region Edit -->
+            
             <Grid x:Name="Edit" Visibility="Collapsed">
 
                 <Grid Height="35" VerticalAlignment="Top">
@@ -215,7 +256,12 @@
 
 
             </Grid>
+            
+            <!--#endregion -->
 
+            
+            <!--#region Settings-->
+            
             <Grid x:Name="Settings" Visibility="Collapsed">
 
 
@@ -224,15 +270,10 @@
 
                 <Button Content="Load" HorizontalAlignment="Left" Margin="248,186,0,0" VerticalAlignment="Top" Width="190" Background="{x:Null}" Foreground="White" BorderBrush="#FFDADADA" Height="42"/>
             </Grid>
+            
+            <!--#endregion -->
 
         </Grid>
-
-
-
-
-
-
-
 
 
 
