@@ -62,7 +62,9 @@ namespace CarApplication
 
                     vehicle.Image = imageBrush.ImageSource;
 
-                    
+                    vehicle.Year = RandomDay();
+
+                    //vehicle.Engine = random.NextDouble(1.0, 3.1);
 
                     break;
 
@@ -84,6 +86,8 @@ namespace CarApplication
 
                     vehicle.Image = imageBrush.ImageSource;
 
+                    vehicle.Year = RandomDay();
+
                     break;
 
                 case VehicleType.Van:
@@ -104,8 +108,18 @@ namespace CarApplication
 
                     vehicle.Image = imageBrush.ImageSource;
 
+                    vehicle.Year = RandomDay();
+
                     break;
             }
+        }
+
+
+        private static DateTime RandomDay()
+        {
+            DateTime start = DateTime.Today;
+            int range = random.Next(0, 21);
+            return start.AddYears(- range);
         }
     }
 

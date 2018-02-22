@@ -70,6 +70,7 @@ namespace CarApplication
 
             filepath = Environment.CurrentDirectory;
             filepath = filepath.Substring(0, filepath.Length - 9);
+
             string imageFilePath = filepath + "/Assets/";
 
 
@@ -117,7 +118,7 @@ namespace CarApplication
             bikesBase.Add(HarleyDavidsonBikes);
             bikesBase.Add(SuzukiBikes);
 
-            VehicleMaster = VehicleFactory.ProductionLine(117);
+            VehicleMaster = VehicleFactory.ProductionLine(1117);
 
             VehicleCatalogue = VehicleMaster;
 
@@ -360,7 +361,10 @@ namespace CarApplication
 
                 labelMake.Content = selectedItem.Make;
                 labelModel.Content = selectedItem.Model;
-                labelPrice.Content = selectedItem.Price;
+                labelPrice.Content = string.Format("{0:C}", selectedItem.Price);
+                labelMileage.Content = string.Format("{0:n0}", selectedItem.Mileage);
+                labelYear.Content = selectedItem.Year.Year;
+
 
                 vehicleImage.Source = selectedItem.Image;
 
@@ -493,9 +497,17 @@ namespace CarApplication
 
         private void ButtonSettingsSave_Click(object sender, RoutedEventArgs e)
         {
-            string saveJson = JsonConvert.SerializeObject(VehicleMaster, Formatting.Indented);
+            string saveJson = JsonConvert.SerializeObject(VehicleMaster);
 
-            File.WriteAllText(saveJson, filepath + "vehicleMaster.json");
+            string jsonFilepath = filepath + "vehicleMaster.json";
+
+            using (StreamWriter sw = new StreamWriter(jsonFilepath))
+            {
+                string json = JsonConvert.SerializeObject(VehicleMaster, Formatting.Indented);
+                sw.Write(json);
+            }
+
+           // File.WriteAllText(saveJson, jsonFilepath);
         }
 
         private void buttonSettingsLoad_Click(object sender, RoutedEventArgs e)

@@ -24,11 +24,12 @@ namespace CarApplication
         public double Mileage { get; set; }
         public string Description { get; set; }
         public ImageSource Image { get; set; }
+        public double Engine { get; set; }
 
 
         public override string ToString()
         {
-            return Make + ", " + Model + "\n- " + Price + ", " + Mileage;
+            return Make + ", " + Model + "\n" + string.Format("{0:C}", Price) + ", " + Mileage + " miles";
         }
     }
 }
