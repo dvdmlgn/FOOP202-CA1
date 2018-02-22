@@ -62,6 +62,8 @@ namespace CarApplication
 
                     vehicle.Image = imageBrush.ImageSource;
 
+                    
+
                     break;
 
                 case VehicleType.Bike:

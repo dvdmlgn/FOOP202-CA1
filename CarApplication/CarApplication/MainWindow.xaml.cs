@@ -70,13 +70,13 @@ namespace CarApplication
 
             filepath = Environment.CurrentDirectory;
             filepath = filepath.Substring(0, filepath.Length - 9);
-            filepath += "/Assets/";
+            string imageFilePath = filepath + "/Assets/";
 
 
-            VehicleImages.Add(new Uri(filepath + "FordFocus.jpg", UriKind.RelativeOrAbsolute));
-            VehicleImages.Add(new Uri(filepath + "FordFiesta.png", UriKind.RelativeOrAbsolute));
-            VehicleImages.Add(new Uri(filepath + "Bmw1Series.jpg", UriKind.RelativeOrAbsolute));
-            VehicleImages.Add(new Uri(filepath + "Bmw2Series.png", UriKind.RelativeOrAbsolute));
+            VehicleImages.Add(new Uri(imageFilePath + "FordFocus.jpg", UriKind.RelativeOrAbsolute));
+            VehicleImages.Add(new Uri(imageFilePath + "FordFiesta.png", UriKind.RelativeOrAbsolute));
+            VehicleImages.Add(new Uri(imageFilePath + "Bmw1Series.jpg", UriKind.RelativeOrAbsolute));
+            VehicleImages.Add(new Uri(imageFilePath + "Bmw2Series.png", UriKind.RelativeOrAbsolute));
 
             //testLabel.Content = "success";
 
@@ -217,6 +217,12 @@ namespace CarApplication
             buttonAdd.Foreground = Brushes.Wheat;
             buttonEdit.Foreground = Brushes.White;
             buttonDelete.Foreground = Brushes.White;
+
+            buttonAdd.Background = null;
+            buttonEdit.Background = (Brush)FindResource("MaterialDesignDivider");
+            buttonDelete.Background = (Brush)FindResource("MaterialDesignDivider");
+
+            // Background = "{DynamicResource MaterialDesignDivider}"
         }
 
         private void buttonEdit_Click(object sender, RoutedEventArgs e)
@@ -230,6 +236,10 @@ namespace CarApplication
             buttonAdd.Foreground = Brushes.White;
             buttonEdit.Foreground = Brushes.Wheat;
             buttonDelete.Foreground = Brushes.White;
+
+            buttonAdd.Background = (Brush)FindResource("MaterialDesignDivider");
+            buttonEdit.Background = null;
+            buttonDelete.Background = (Brush)FindResource("MaterialDesignDivider");
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
@@ -243,6 +253,10 @@ namespace CarApplication
             buttonAdd.Foreground = Brushes.White;
             buttonEdit.Foreground = Brushes.White;
             buttonDelete.Foreground = Brushes.Wheat;
+
+            buttonAdd.Background = (Brush)FindResource("MaterialDesignDivider");
+            buttonEdit.Background = (Brush)FindResource("MaterialDesignDivider");
+            buttonDelete.Background = null;
         }
 
         private void comboBoxSortBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -475,6 +489,19 @@ namespace CarApplication
 
             // ----------------------------------------------------------------------------------------------------------------------------------------------------
             #endregion
+        }
+
+        private void ButtonSettingsSave_Click(object sender, RoutedEventArgs e)
+        {
+            string saveJson = JsonConvert.SerializeObject(VehicleMaster, Formatting.Indented);
+
+            File.WriteAllText(saveJson, filepath + "vehicleMaster.json");
+        }
+
+        private void buttonSettingsLoad_Click(object sender, RoutedEventArgs e)
+        {
+            if( File.Exists(filepath + "vehicleMaster.json") )
+            VehicleMaster = JsonConvert.DeserializeObject< ObservableCollection<Vehicle> >(filepath + "vehicleMaster.json");
         }
     }
 }
