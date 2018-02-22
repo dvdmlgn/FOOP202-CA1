@@ -132,7 +132,7 @@
                          HorizontalAlignment="Left" VerticalAlignment="Top"  Height="341"  Width="258"   Margin="25,83,0,0"  Background="#33050B0F"  Foreground="white" />
 
 
-                <materialDesign:Card x:Name="card"  Margin="178,10,36,0" Height="414" Visibility="Visible">
+                <materialDesign:Card x:Name="card"  Margin="178,10,36,0" Height="414" Visibility="Collapsed" Background="#FFF9F9F9">
                     <Grid>
                         
                         <Label x:Name="labelVehicleDetails" Content="Vehicle Details" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="276" Height="40" Foreground="Black" FontSize="16" IsEnabled="False"/>
