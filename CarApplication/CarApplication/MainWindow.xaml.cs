@@ -118,7 +118,7 @@ namespace CarApplication
             bikesBase.Add(HarleyDavidsonBikes);
             bikesBase.Add(SuzukiBikes);
 
-            VehicleMaster = VehicleFactory.ProductionLine(1117);
+            VehicleMaster = VehicleFactory.ProductionLine(7);
 
             VehicleCatalogue = VehicleMaster;
 

@@ -67,6 +67,7 @@
     </ApplicationDefinition>
     <Compile Include="Bike.cs" />
     <Compile Include="Car.cs" />
+    <Compile Include="ColourChanger.cs" />
     <Compile Include="Van.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="VehicleBase.cs" />
